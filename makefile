@@ -1,5 +1,5 @@
 postgres:
-	docker run --name postgres15 --network bank-network -p 5432:5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=1234 -d postgres:15-alpine
+	docker run --name postgres15 --network bank-network -p 5432:5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=Qqwerty1! -d postgres:15-alpine
 
 createdb:
 	docker exec -it postgres15 createdb --username=postgres --owner=postgres simple_bank
@@ -8,16 +8,16 @@ dropdb:
 	docker exec -it postgres15 dropdb simple_bank
 
 migrateup:
-	migrate -path db/migration -database "postgresql://postgres:1234@localhost:5432/simple_bank?sslmode=disable" -verbose up
+	migrate -path db/migration -database "postgresql://postgres:Qqwerty1!@simple-bank.cqttzrnoc6pq.eu-central-1.rds.amazonaws.com:5432/simple_bank" -verbose up
 
 migrateup1:
-	migrate -path db/migration -database "postgresql://postgres:1234@localhost:5432/simple_bank?sslmode=disable" -verbose up 1
+	migrate -path db/migration -database "postgresql://postgres:Qqwerty1!@simple-bank.cqttzrnoc6pq.eu-central-1.rds.amazonaws.com:5432/simple_bank" -verbose up 1
 
 migratedown:
-	migrate -path db/migration -database "postgresql://postgres:1234@localhost:5432/simple_bank?sslmode=disable" -verbose down
+	migrate -path db/migration -database "postgresql://postgres:Qqwerty1!@simple-bank.cqttzrnoc6pq.eu-central-1.rds.amazonaws.com:5432/simple_bank" -verbose down
 
 migratedown1:
-	migrate -path db/migration -database "postgresql://postgres:1234@localhost:5432/simple_bank?sslmode=disable" -verbose down 1
+	migrate -path db/migration -database "postgresql://postgres:Qqwerty1!@simple-bank.cqttzrnoc6pq.eu-central-1.rds.amazonaws.com:5432/simple_bank" -verbose down 1
 
 makeFileDir := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 sqlc:
