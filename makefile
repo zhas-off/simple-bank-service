@@ -1,5 +1,5 @@
 postgres:
-	docker run --name postgres15 -p 5432:5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=1234 -d postgres:15-alpine
+	docker run --name postgres15 --network bank-network -p 5432:5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=1234 -d postgres:15-alpine
 
 createdb:
 	docker exec -it postgres15 createdb --username=postgres --owner=postgres simple_bank
